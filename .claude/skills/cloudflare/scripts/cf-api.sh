@@ -26,12 +26,15 @@ load_credentials() {
         exit 3
     fi
 
-    # Extract the Bearer token (API Token)
-    CF_API_TOKEN=$(grep -oP 'Bearer \K[A-Za-z0-9_-]+' "$CF_CREDS_FILE" 2>/dev/null || true)
+    local file_content
+    file_content=$(cat "$CF_CREDS_FILE")
 
-    # Extract the Global API Key if token not found
+    # Extract the Bearer token (API Token) - look for Bearer followed by token
+    CF_API_TOKEN=$(echo "$file_content" | grep -o 'Bearer [A-Za-z0-9_-]*' | head -1 | sed 's/Bearer //' || true)
+
+    # Extract the Global API Key if token not found (37 char hex string on its own line)
     if [[ -z "$CF_API_TOKEN" ]]; then
-        CF_GLOBAL_KEY=$(grep -oP '^[a-f0-9]{37}$' "$CF_CREDS_FILE" 2>/dev/null | head -1 || true)
+        CF_GLOBAL_KEY=$(echo "$file_content" | grep -E '^[a-f0-9]{37}$' | head -1 || true)
     fi
 
     if [[ -z "$CF_API_TOKEN" && -z "$CF_GLOBAL_KEY" ]]; then
