@@ -1,0 +1,7 @@
+interface:
+  display_name: "Cloudflare"
+  short_description: "Manage Cloudflare DNS, zones, security, and Workers"
+  default_prompt: "Use $cloudflare to manage my Cloudflare DNS records, zones, security settings, cache, Workers, or analytics."
+
+policy:
+  allow_implicit_invocation: true

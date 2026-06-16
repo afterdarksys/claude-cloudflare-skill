@@ -1,8 +1,8 @@
-# Cloudflare Skill for Claude Code
+# Cloudflare Skill for Claude Code and Codex
 
 **Created by After Dark Systems, LLC**
 
-A comprehensive Claude Code skill for managing Cloudflare infrastructure. This skill provides full control over DNS, zones, SSL/TLS, caching, firewall rules, Workers, and analytics through the Cloudflare API v4.
+A comprehensive skill for managing Cloudflare infrastructure from Claude Code or Codex. This skill provides full control over DNS, zones, SSL/TLS, caching, firewall rules, Workers, and analytics through the Cloudflare API v4.
 
 ## Features
 
@@ -19,9 +19,9 @@ A comprehensive Claude Code skill for managing Cloudflare infrastructure. This s
 
 ## Quick Start
 
-1. Install the skill (see [INSTALL.md](INSTALL.md))
+1. Install the skill for Claude Code, Codex, or both (see [INSTALL.md](INSTALL.md))
 2. Configure your Cloudflare API credentials
-3. Use Claude Code naturally - the skill activates automatically when you ask about Cloudflare
+3. Use Claude Code or Codex naturally - the skill activates automatically when you ask about Cloudflare
 
 ### Example Conversations
 
@@ -33,6 +33,15 @@ You: Purge the cache for example.com
 You: Block IP 192.0.2.100 on my zone
 You: Show me traffic analytics for the last 24 hours
 ```
+
+## Supported Agents
+
+| Agent | Skill Path |
+|-------|------------|
+| Claude Code | `.claude/skills/cloudflare` |
+| Codex | `.codex/skills/cloudflare` |
+
+Both packages include the same Cloudflare scripts, templates, and API reference.
 
 ## Available Scripts
 
@@ -89,8 +98,9 @@ The `templates/` directory includes ready-to-use configurations:
 
 ## Documentation
 
-- [INSTALL.md](INSTALL.md) - Installation instructions
-- [.claude/skills/cloudflare/reference.md](.claude/skills/cloudflare/reference.md) - Full API reference
+- [INSTALL.md](INSTALL.md) - Installation instructions for Claude Code and Codex
+- [.claude/skills/cloudflare/reference.md](.claude/skills/cloudflare/reference.md) - Claude Code skill API reference
+- [.codex/skills/cloudflare/reference.md](.codex/skills/cloudflare/reference.md) - Codex skill API reference
 
 ## License
 
